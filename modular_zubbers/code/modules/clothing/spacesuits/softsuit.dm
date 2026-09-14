@@ -42,6 +42,26 @@
 		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 		update_appearance()
 
+/obj/item/clothing/suit/space/emergency/item_interaction(mob/living/user, obj/item/weapon, list/modifiers)
+	if(!torn || !istype(weapon, /obj/item/stack/medical/wrap/sticky_tape))
+		return ..()
+
+	var/obj/item/stack/medical/wrap/sticky_tape/tape = weapon
+	user.visible_message(span_notice("[user] begins patching [src] with [tape]."), span_notice("You begin patching [src] with [tape]."))
+	playsound(user, 'sound/items/duct_tape/duct_tape_rip.ogg', 50, TRUE)
+
+	if(!do_after(user, 3 SECONDS, target = src))
+		return ITEM_INTERACT_BLOCKING
+
+	if(!tape.use(1))
+		return ITEM_INTERACT_BLOCKING
+	torn = FALSE
+	clothing_flags |= STOPSPRESSUREDAMAGE
+	update_appearance()
+	to_chat(user, span_notice("You patch the tear in [src]."))
+	playsound(user, 'sound/items/duct_tape/duct_tape_snap.ogg', 50, TRUE)
+	return ITEM_INTERACT_SUCCESS
+
 
 /obj/item/clothing/suit/space/emergency/update_name(updates)
 	. = ..()
@@ -58,7 +78,9 @@
 /obj/item/clothing/head/helmet/space/emergency
 	name = "emergency space helmet"
 	desc = "A fragile looking emergency spacesuit helmet for limited use in space."
-	icon_state = "syndicate-helm-orange"
+	icon = 'modular_zubbers/icons/obj/clothing/head/spacehelm.dmi'
+	worn_icon = 'modular_zubbers/icons/mob/clothing/head/spacehelm.dmi'
+	icon_state = "space_emergency"
 	inhand_icon_state = "syndicate-helm-orange"
 	heat_protection = NONE
 	armor_type = /datum/armor/space_emergency

@@ -104,6 +104,35 @@
 	)
 	. = ..()
 
+/datum/mod_theme/mining/asteroid
+	name = "mining"
+	desc = "A spaceworthy mining suit, tuned for extra mobility. A timeless Nakamura Engineering design."
+	extended_desc = "A revised model of Nakamura Engineering's classic mining suit. Where previous \
+		iterations featured bulky ceramics to withstand the belligerent environs of asteroids, much has been stripped \
+		away to meet the demands of a shifting customer base, prioritizing greater mobility at the expense of protection. \
+		Taking notes from the playbooks of planetary miners, various hard points for armor have been added, \
+		elegantly solving the discrepency while catering to the various niches of users."
+	default_skin = "asteroid"
+	armor_type = /datum/armor/mod_theme_mining_asteroid
+	resistance_flags = FIRE_PROOF
+	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
+	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
+	complexity_max = DEFAULT_MAX_COMPLEXITY - 2
+	slowdown_deployed = 0.4
+	charge_drain = DEFAULT_CHARGE_DRAIN
+	inbuilt_modules = list()
+
+/datum/armor/mod_theme_mining_asteroid
+	melee = 30
+	bullet = 10
+	laser = 10
+	energy = 20
+	bomb = 50
+	bio = 50
+	fire = 50
+	acid = 50
+	wound = 10
+
 #define LUSTWISH_HELMET_SEAL "slides closed"
 #define LUSTWISH_HELMET_UNSEAL "slides open"
 #define LUSTWISH_CHESTPLATE_SEAL "squeezes snugly around your body"

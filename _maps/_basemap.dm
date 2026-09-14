@@ -16,6 +16,7 @@
 	#include "map_files\NebulaStation\NebulaStation.dmm"
 	#include "map_files\KiloStation\KiloStation.dmm"
 	// BUBBER EDIT ADDITON START - Compiling our modular maps too!
+	#include "map_files\Mining\Asteroid.dmm"
 	#include "map_files\Blueshift\Blueshift.dmm"
 	#include "map_files\VoidRaptor\VoidRaptor.dmm"
 	//#include "map_files\wawastation\wawastation.dmm" BUBBER EDIT - UNUSED
