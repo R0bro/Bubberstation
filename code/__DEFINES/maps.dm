@@ -149,6 +149,15 @@ Always compile, always use that verb, and always make sure that it works for wha
 	ZTRAIT_LAVA_RUINS = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
+
+//BUBBER EDIT ADDITION START
+///Z level traits for The Asteroid
+#define ZTRAITS_ASTEROID list(\
+	ZTRAIT_MINING = TRUE, \
+	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
+	ZTRAIT_BASETURF = /turf/open/space/basic)
+//BUBBER EDIT ADDITION END
+
 ///Z level traits for Away Missions
 #define ZTRAITS_AWAY list(ZTRAIT_AWAY = TRUE)
 ///Z level traits for Secret Away Missions
@@ -255,3 +264,4 @@ Always compile, always use that verb, and always make sure that it works for wha
 #define MINETYPE_NONE "none"
 #define MINETYPE_LAVALAND "lavaland"
 #define MINETYPE_ICE "ice"
+#define MINETYPE_ASTEROID "asteroid" // BUBBER EDIT ADDITION
